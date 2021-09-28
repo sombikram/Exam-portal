@@ -1,0 +1,22 @@
+<mat-card>
+
+    <mat-action-list>
+
+        <button mat-raised-button color='basic' class="mb20 show_allQuiz_button" [routerLink] ="'/user/0'">
+            <mat-icon   color= "primary">category</mat-icon> Show All Quizzes
+        </button>
+
+        <div mat-subheader>Available Categories</div>
+       
+
+        <button [routerLink]="'/user/'+ c.cid"  mat-list-item *ngFor= "let c of categories">
+            <mat-icon mat-list-icon>quiz</mat-icon> {{c.title}}
+        </button>
+
+
+
+    </mat-action-list>
+
+
+</mat-card>
+<!-- {{categories | json}} -->

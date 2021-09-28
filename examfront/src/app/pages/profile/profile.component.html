@@ -1,0 +1,58 @@
+<mat-card class="mr20">
+    <h1>Your Profile Details</h1>
+
+    <!-- {{user | json}} -->
+    <mat-card-content>
+        <div class="bootstrap-wrapper">
+            <div class="container">
+                <div class="container text-center">
+                    <img
+                    src="../../../assets/default_image.jpg"
+                    alt=""
+                   class="profile-image"
+                    />
+
+                <h1 class="mt20">{{loginService.getUser().firstName}}  {{loginService.getUser().lastName}}</h1>
+                </div>
+                <div class="row">
+                    <div class="col-md-10 offset-md-1">
+                            <!-- table details -->
+
+                            <table class="table text-center">
+                                <tr>
+                                    <td>User Name</td>
+                                    <td>{{loginService.getUser().username}}</td>
+                                </tr>
+                                <tr>
+                                    <td>User ID</td>
+                                    <td>{{loginService.getUser().id}}</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Phone Number</td>
+                                    <td>{{loginService.getUser().phone}}</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Role</td>
+                                    <td>{{loginService.getUser().authorities[0].authority}}</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Status</td>
+                                    <td>{{loginService.getUser().enabled? "Active" : "Not Active"}}</td>
+                                </tr>
+                            </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </mat-card-content>
+
+    <mat-card-actions class="text-center">
+        <button mat-raised-button class="mb20"  color="primary">UPDATE</button>
+        <button mat-raised-button class="mb20" color="accent">SHARE</button>
+      </mat-card-actions>
+
+</mat-card>

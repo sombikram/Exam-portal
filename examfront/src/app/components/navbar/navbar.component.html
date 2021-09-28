@@ -1,0 +1,52 @@
+<mat-toolbar color= "primary">
+
+    <button 
+      routerLink="/"
+      mat-stroked-button color="accent">
+      <mat-icon>menu_book</mat-icon>
+</button>
+
+    <span>Exam Portal</span>
+    <span class="example-spacer"></span>
+
+    <button 
+    *ngIf="!loginService.isLoggedIn()"
+    [routerLink]="'/login'"
+    mat-stroked-button color="accent" class="mr20">Log in </button>
+
+    <button 
+    *ngIf="!loginService.isLoggedIn()"
+    [routerLink]="'/signup'"
+    mat-stroked-button color="accent" class="mr20">Register</button>
+
+
+
+    <button
+     *ngIf="loginService.isLoggedIn() && loginService.getUserRole() == 'ADMIN' "
+     [routerLink]="'admin/profile'"
+    mat-stroked-button color ="accent"  class="mr20"
+    >
+    <mat-icon>person_outline</mat-icon> {{loginService.getUser().username}}
+  </button>
+
+ 
+
+  <button
+     *ngIf="loginService.isLoggedIn() && loginService.getUserRole() == 'USER'"
+    mat-stroked-button color ="accent"  class="mr20"
+    >
+    <mat-icon>person_outline</mat-icon> {{loginService.getUser().username}}
+  </button>
+
+    <button
+    (click)="logout()"
+    *ngIf="loginService.isLoggedIn()"
+     class="mr20"
+    mat-stroked-button color ="accent"
+    >
+    <mat-icon>logout</mat-icon> Log out
+</button>
+
+
+  </mat-toolbar>
+  
